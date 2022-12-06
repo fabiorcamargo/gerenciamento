@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
+    CademiController,
     UserController
 };
 use App\Http\Controllers\Admin\CommentController;
@@ -20,13 +21,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
+    Route::get('/users/asaas/index', [AsaasController::class, 'client'])->name('asaas.index');
+
+ 
+    //Route::get('/users/{id}/cademi/create', [CademiController::class, 'create'])->name('cademi.create');
+    
+    
 });
 
-
-Route::get('/users', [AsaasController::class, 'aluno'])->name('users.aluno');
-
 Route::get('/', function () {
-    return view('w');
+    return view('auth.register');
 });
 
 require __DIR__.'/auth.php';

@@ -19,6 +19,7 @@ class UsersSeeder extends Seeder
             'name' => 'Fábio Camargo',
             'email' => 'fabiorcamargo@gmail.com',
             'password' => bcrypt('277888'),
+            'role' => 1,
         ]);
     }
 }

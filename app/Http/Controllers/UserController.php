@@ -102,4 +102,9 @@ class UserController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    public function getUsers() {
+        $students = User::get()->toJson(JSON_PRETTY_PRINT);
+        return response($students, 200);
+      }
 }

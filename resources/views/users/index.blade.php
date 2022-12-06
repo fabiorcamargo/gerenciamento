@@ -13,9 +13,10 @@
     <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Pesquisar</button>
 </form>
 
-<form action="{{ route('users.asaas') }}" method="get" class="py-5">
-  <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Asaas</button>
+<form action="{{ route('asaas.index') }}" method="get" class="py-5">
+  <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Pesquisar</button>
 </form>
+
 
 <table class="min-w-full leading-normal shadow-md rounded-lg overflow-hidden">
     <thead>
