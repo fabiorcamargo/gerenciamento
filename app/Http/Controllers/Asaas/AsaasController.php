@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 class AsaasController extends Controller
 {
     public function asaascliente(){
-        $asaas = new AsaasAsaas('$aact_YTU5YTE0M2M2N2I4MTliNzk0YTI5N2U5MzdjNWZmNDQ6OjAwMDAwMDAwMDAwMDAwMDYwMjY6OiRhYWNoX2VhNzFmMTk4LTliZmMtNGEyMS04OTk2LTZiZjk2MTUzMGEwNw==', 'homologacao');
+        $asaas = new AsaasAsaas(env('ASAAS_TOKEN'), env('ASAAS_TIPO'));
             $asaas->Cliente()->getAll();
             $clientes = $asaas->Cliente()->getAll();
             dd($clientes->data[3]->name);
