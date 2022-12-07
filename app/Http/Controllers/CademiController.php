@@ -24,7 +24,7 @@ class CademiController extends Controller
 
         $payload = [
             "token" => "9c99b1e6faf00591827b268778f90dcf",
-            "codigo"=> "a123",
+            "codigo"=> "b123",
             "status"=> "aprovado",
             "produto_id"=> "novo1",
             "cliente_email"=> "teste@teste.com.br",
@@ -38,7 +38,7 @@ class CademiController extends Controller
         //Cria um novo aluno na cademi
 
         $response =(Http::post("https://profissionaliza.cademi.com.br/api/postback/custom", $payload));
-        $data = dd($response->body());
+        $data = dd($response);
     }
 
 }

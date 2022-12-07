@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users/asaas/index', [AsaasController::class, 'client'])->name('asaas.index');
 
  
-    //Route::get('/users/{id}/cademi/create', [CademiController::class, 'create'])->name('cademi.create');
+    Route::get('/users/{id}/cademi/create', [CademiController::class, 'create'])->name('cademi.create');
     
     
 });
