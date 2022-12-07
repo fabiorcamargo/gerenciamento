@@ -104,7 +104,7 @@ class UserController extends Controller
     }
 
     public function getUsers() {
-        $students = User::get()->toJson(JSON_PRETTY_PRINT);
-        return response($students, 200);
+        //$students = User::get()->toJson(JSON_PRETTY_PRINT);
+        return response('recebido', 200);
       }
 }

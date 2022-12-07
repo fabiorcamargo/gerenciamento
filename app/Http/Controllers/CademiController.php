@@ -40,5 +40,6 @@ class CademiController extends Controller
         $response =(Http::post("https://profissionaliza.cademi.com.br/api/postback/custom", $payload));
         $data = dd($response);
     }
+    
 
 }
