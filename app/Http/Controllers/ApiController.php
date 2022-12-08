@@ -52,7 +52,7 @@ class ApiController extends Controller
                     return redirect()->back();
                   }
 
-                  /*
+                  
                 $response =  $user->cademis()->create([
                     'user' => $arr->id,
                     'nome' => $arr->nome,
@@ -62,7 +62,7 @@ class ApiController extends Controller
                     'gratis' => $arr->gratis,
                     'visible' => isset($arr->visible)
                 ]);
-                  */
+                  
 
                     return response($userId, 200);
           }
