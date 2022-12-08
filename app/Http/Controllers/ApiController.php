@@ -39,20 +39,20 @@ class ApiController extends Controller
 
         public function store(Request $request)
                 {
+                
+                  $data = json_decode($request->getContent(), true);
+                  $arr = (object)$data['event']['usuario'];
+                  //dd($arr->id);
 
-
-                  $tabela = $this->user->where('email', "hjkhjkl@hjkhkjl.com")->first();
+                  $tabela = $this->user->where('email', $arr->email)->first();
                   
                   $userId = $tabela['id'];
 
                   if (!$user = $this->user->find($userId)) {
                     return redirect()->back();
                   }
-                
-                  $data = json_decode($request->getContent(), true);
-                  $arr = (object)$data['event']['usuario'];
-                  //dd($arr->id);
-                  
+
+                  /*
                 $response =  $user->cademis()->create([
                     'user' => $arr->id,
                     'nome' => $arr->nome,
@@ -62,9 +62,9 @@ class ApiController extends Controller
                     'gratis' => $arr->gratis,
                     'visible' => isset($arr->visible)
                 ]);
-                  
+                  */
 
-                    return response($response, 200);
+                    return response($userId, 200);
           }
 
 }

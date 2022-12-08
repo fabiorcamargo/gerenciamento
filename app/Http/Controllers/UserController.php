@@ -60,9 +60,9 @@ class UserController extends Controller
 
         $id = ($response['id']);
         //return redirect()->route('users.show', $id);
-        //return redirect()->route('cademi.create', $id);
+        return redirect()->route('cademi.create', $id);
 
-        return redirect()->route("/users/$id/cademi/create")->$response;
+        //return redirect()->route("/users/$id/cademi/create")->$response;
 
         // $user = new User;
         // $user->name = $request->name;
