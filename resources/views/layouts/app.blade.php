@@ -7,9 +7,22 @@
     <title>@yield('title') - EspecializaTi</title>
 
     <link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/png">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"
+    integrity="sha256-u7MY6EG5ass8JhTuxBek18r5YG6pllB9zLqE4vZyTn4="
+    crossorigin="anonymous"></script>
+
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
 </head>
+
+
+
 <body class="bg-gray-50">
 
     <div class="container mx-auto px-4 py-8">
@@ -21,4 +34,6 @@
     </div>
 
 </body>
+
+
 </html>

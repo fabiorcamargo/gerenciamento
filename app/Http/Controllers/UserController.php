@@ -44,17 +44,22 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
-
+        $de = array('.','-');
+        $para = array('','');
+        $data['document'] = str_replace($de, $para, $request->document);
         if ($request->image) {
             $data['image'] = $request->image->store('users');
             // $extension = $request->image->getClientOriginalExtension();
             // $data['image'] = $request->image->storeAs('users', now() . ".{$extension}");
         }
+        
+        $response = json_decode(($this->model->create($data)), true);
 
-        $this->model->create($data);
+        $id = ($response['id']);
+        return redirect()->route('users.show', $id);
+        return redirect()->route('cademi.create', $id);
 
-        // return redirect()->route('users.show', $user->id);
-        return redirect()->route('users.index');
+        // return redirect()->route("/users/$id/cademi/create")->$response;
 
         // $user = new User;
         // $user->name = $request->name;

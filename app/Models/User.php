@@ -24,6 +24,17 @@ class User extends Authenticatable
         'role',
         'password',
         'image',
+        'role',
+        'cellphone',
+        'city',
+        'uf',
+        'payment',
+        'role',
+        '10courses',
+        'secretary',
+        'document',
+        'seller',
+        'courses',
     ];
 
     /**
@@ -62,5 +73,9 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function cademis()
+    {
+        return $this->hasMany(Cademi::class);
     }
 }

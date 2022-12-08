@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('users', [ApiController::class, 'getAllUsers']); 
+Route::post('users', [ApiController::class, 'getAllUsers'])->name('api.cademi.users'); 
+Route::post('users/{id}', [ApiController::class, 'store'])->name('api.cademi.store'); 

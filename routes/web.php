@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
 
  
     Route::get('/users/{id}/cademi/create', [CademiController::class, 'create'])->name('cademi.create');
+    Route::post('/users/{id}/cademi', [CademiController::class, 'store'])->name('cademi.store');
+
+
     
     
 });

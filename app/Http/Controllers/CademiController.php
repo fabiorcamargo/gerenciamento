@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cademi;
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateCommentRequest;
+use App\Models\{
+    Cademi,
+    User
+};
+
+use App\Http\Requests\StoreUpdateCademiRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class CademiController extends Controller
 {
+    protected $cademi;
+    protected $user;
 
     public function __construct(Cademi $cademi, User $user)
     {
@@ -21,25 +29,49 @@ class CademiController extends Controller
         if (!$user = $this->user->find($userId)) {
             return redirect()->back();
         }
+       // dd($user->id);
 
         $payload = [
-            "token" => "9c99b1e6faf00591827b268778f90dcf",
-            "codigo"=> "b123",
+            "token" => env('CADEMI_TOKEN_GATEWAY'),
+            "codigo"=> "$user->id",
             "status"=> "aprovado",
             "produto_id"=> "novo1",
-            "cliente_email"=> "teste@teste.com.br",
-            "cliente_nome"=> "Evandro Miranda",
-            "cliente_doc"=> "123.123.123-12",
-            "cliente_celular"=> "5511991232020",
-            "cliente_endereco_cidade"=> "Santos",
-            "cliente_endereco_estado"=> "SP",
-            "cliente_endereco_cep"=> "11600-00",
+            "cliente_email"=> $user->email,
+            "cliente_nome"=> $user->name,
+            "cliente_doc"=> $user->document,
+            "cliente_celular"=> $user->cellphone,
+            "cliente_endereco_cidade"=> $user->city,
+            "cliente_endereco_estado"=> $user->uf,
+            "produto_nome" => $user->courses,
+            "recorrencia_id" => "r00001"
         ];
+
+        dd($payload);
+        
+
         //Cria um novo aluno na cademi
 
-        $response =(Http::post("https://profissionaliza.cademi.com.br/api/postback/custom", $payload));
-        $data = dd($response);
+      //  Http::post("https://profissionaliza.cademi.com.br/api/postback/custom", $payload);
+        
+        return redirect()->route('users.index');
     }
     
+    public function store(StoreUpdateCademiRequest $request, $userId)
+    {
+
+        $user = $this->user->find($userId);
+        
+        /*
+        if (!$user = $this->user->find($userId)) {
+            return redirect()->back();
+        }
+
+        $user->cademi()->create([
+            'body' => $request->body,
+            'visible' => isset($request->visible)
+        ]);
+*/
+        return response($user, 200);
+    }
 
 }
