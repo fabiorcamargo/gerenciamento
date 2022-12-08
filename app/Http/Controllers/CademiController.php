@@ -55,12 +55,12 @@ class CademiController extends Controller
         return redirect()->route('users.index');
     }
     
-    public function store(StoreUpdateCademiRequest $request, $userId)
+    public function store(Request $request, $userId)
     {
 
         $user = $this->user->find($userId);
         
-        /*
+        
         if (!$user = $this->user->find($userId)) {
             return redirect()->back();
         }
@@ -69,7 +69,7 @@ class CademiController extends Controller
             'body' => $request->body,
             'visible' => isset($request->visible)
         ]);
-*/
+
         return response($user, 200);
     }
 
