@@ -59,7 +59,7 @@ class UserController extends Controller
         $response = json_decode(($this->model->create($data)), true);
 
         $id = ($response['id']);
-        return redirect()->route('users.show', $id);
+        //return redirect()->route('users.show', $id);
         //return redirect()->route('cademi.create', $id);
 
         return redirect()->route("/users/$id/cademi/create")->$response;
