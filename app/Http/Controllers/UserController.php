@@ -47,6 +47,9 @@ class UserController extends Controller
         $de = array('.','-');
         $para = array('','');
         $data['document'] = str_replace($de, $para, $request->document);
+        $de = array('(',')',' ','-');
+        $para = array('','','','');
+        $data['cellphone'] = str_replace($de, $para, $request->cellphone);
         if ($request->image) {
             $data['image'] = $request->image->store('users');
             // $extension = $request->image->getClientOriginalExtension();
